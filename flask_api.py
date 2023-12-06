@@ -29,4 +29,4 @@ def get_data_cluster_2():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
