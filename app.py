@@ -77,19 +77,6 @@ def get_sample_by_cluster(df,cluster_number,samples):
     cluster_df = df[df['cluster_label'] == cluster_number]
     return cluster_df.sample(n=samples)
 
-
-@app.route('/api/get-sample-cluster-1', methods=['GET'])
-def get_data_cluster_1():
-    random_cluster = random.randint(-1, 10)
-    sample = get_sample_by_cluster(df1,random_cluster,2)
-    return jsonify({'text': sample['documents'].to_list(), 'keywords': sample['keywords_list'].to_list()})
-
-@app.route('/api/get-sample-cluster-2', methods=['GET'])
-def get_data_cluster_2():
-    random_cluster = random.randint(-1, 4)
-    sample = get_sample_by_cluster(df2,random_cluster,2)
-    return jsonify({'text': sample['Cleaned_Data'].to_list(), 'keywords': sample['keywords_list'].to_list()})
-
 @app.route('/api/answer', methods=['POST'])
 def get_chatbot_answer():
     data = request.get_json()
