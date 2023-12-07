@@ -43,9 +43,9 @@ def get_similarity(question, data, n=4):
 
     response = client.completions.create(model = "gpt-3.5-turbo-instruct", 
                                     temperature=0, 
-                                       prompt = f"""Your name is counsel. Conusel is designed to answer question about research in machine learning domain. Cousel talks politely and greets everyone. Keep answers within the context and give refrences for your answer  
-                                                    You can answer basic of Machine learning question, consider them in context.
-
+                                       prompt = f"""Your name is Counsel. Counsel is a chatbot that can answer questions about machine learning.
+                                                    Counsel knows names of authors, title, publication name and year of papers related to papers.
+                                                    Counsel knows the concept of time and date.
                                                     
                                                    Question: {question}
                                                    
@@ -66,9 +66,6 @@ def get_similarity(question, data, n=4):
 app = Flask(__name__)
 
 # Define a route for your API
-df1 = pd.read_csv('./cluster1_6271.csv')
-df2 = pd.read_csv('./cluster2_1311.csv')
-
 answer_df1 = pd.read_json('./embedding1.json')
 answer_df2 = pd.read_json('./embedding2.json')
 
